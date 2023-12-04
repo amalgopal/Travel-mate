@@ -4,7 +4,7 @@ import 'package:travel_mate/screen/splash.dart';
 
 void main(List<String> args) {
   WidgetsFlutterBinding.ensureInitialized();
-  initializeDataBase();
+   initializeDataBase();
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      
       debugShowCheckedModeBanner: false,
+      
       home: ScreenSplash(),
     );
   }

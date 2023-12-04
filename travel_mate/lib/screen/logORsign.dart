@@ -9,51 +9,44 @@ class ScreenLoginOrSignup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screensize = MediaQuery.of(context).size;
     return  Scaffold(
-      
-      body: Column(
-        children: [
-          const SizedBox(height: 100,),
-          Image.asset('asset/image/vector-tourist-couples-with-travel-bags-illustration_575980-4163.jpg'),
-          const SizedBox(height: 100,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 60,
-                width: 280,
-                child: ElevatedButton(
-                  style:
-                 
-                  ElevatedButton.styleFrom(backgroundColor: Colors.grey) ,
-                  onPressed: (){ Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>ScreenLogin()));}, child: const Text('Log In',style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold ),)),
-              )
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: screensize.height * 0.10,),
+            Image.asset('asset/image/vector-tourist-couples-with-travel-bags-illustration_575980-4163.jpg'),
+             SizedBox(height: screensize.height * 0.11,),
+            SizedBox(
+              height: screensize.height * 0.07,
+              width: screensize.width * 0.70,
+              child: ElevatedButton(
+                style:ElevatedButton.styleFrom(backgroundColor: Colors.grey) ,
+                onPressed: (){
+                   Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>ScreenLogin()));
+                   },
+                    child: const Text('Log In',style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold ),)),
+            ),
+             SizedBox(height: screensize.height * 0.06,),
+            SizedBox(
+             height: screensize.height * 0.07,
+             width: screensize.width * 0.70,
              
-            ],
-          ),
-          const SizedBox(height: 50,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-             SizedBox(
-              height: 60,
-              width: 280,
-              
-              child:  ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-                
-                onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> ScreenSigup()),);}, child: const Text('Sign In',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
-                ),
-             ),
-             
+             child:  ElevatedButton(
+               style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
+               
+               onPressed: (){
+                 Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> ScreenSigup()),);}, child: const Text('Sign Up',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+               ),
+            ),
+            SizedBox(height:screensize.height * 0.25),
+           
+            const Center(
+              child: Text('version 1.0.2',style: TextStyle(color: Colors.grey),),
+            )
           ],
-          ),
-          const SizedBox(height:280),
-         
-          const Center(
-            child: Text('version 1.0.2',style: TextStyle(color: Colors.grey),),
-          )
-        ],
+        ),
       )
       
     );

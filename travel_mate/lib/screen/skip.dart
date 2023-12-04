@@ -11,39 +11,37 @@ class ScreenSkip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    final Size screensize = MediaQuery.of(context).size;
     return Scaffold(
       
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('asset/image/cartoon-summer-scene-with-mountain-landscape-forest-meadow-shores-illustration-ai-generated_22200-356.jpg'),
+        
+          //Image.asset('asset/image/cartoon-summer-scene-with-mountain-landscape-forest-meadow-shores-illustration-ai-generated_22200-356.jpg'),
           Expanded(
             child: Container(
-              color: Colors.green.shade900,
-              
+             // color: Colors.green.shade900,
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage('asset/image/cartoon-summer-scene-with-mountain-landscape-forest-meadow-shores-illustration-ai-generated_22200-356.jpg'),fit: BoxFit.cover)
+              ),
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  SizedBox(height: screensize.height * 0.03,),
                   const Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 50,vertical: 40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        
-                        Text('''Create Goals
+                    padding:  EdgeInsets.only(left: 30,),
+                    child: Text('''Create Goals
 and
-Plan Trips''',style:TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize: 50,),
-                        
-                        
-                        ),
-                        //Text('and',style:TextStyle(color: Colors.white,fontWeight:FontWeight.bold,  ),),
-                        //Text('Plan Trips',style:TextStyle(color: Colors.white,fontWeight:FontWeight.bold,  ),),
-                      ],
+Plan Trips''',style:TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize: 45,),
+                    
+                    
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                   SizedBox(height: screensize.height * 0.04,),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50,),
+                    padding: const EdgeInsets.symmetric(horizontal: 40,),
                     child: SlideAction(trackBuilder: (context, state) {
                               return Container(
                     decoration: BoxDecoration(
@@ -87,11 +85,12 @@ Plan Trips''',style:TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fon
                          action: 
                          
                          () async {
-                              Navigator.of(context).push(MaterialPageRoute(builder:(ctx)=>const ScreenLoginOrSignup(),));
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(ctx)=>const ScreenLoginOrSignup(),));
                               
                         },
                         ),
                   ),
+                  SizedBox(height: screensize.height * 0.1,)
                 ],
               ),
             ),
