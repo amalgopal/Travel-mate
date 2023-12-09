@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 
 File? coverPic;
 
+// ignore: camel_case_types
 class addTripCoverPicContainer extends StatefulWidget {
   const addTripCoverPicContainer({super.key});
 
@@ -15,6 +16,7 @@ class addTripCoverPicContainer extends StatefulWidget {
       _addTripCoverPicContainerState();
 }
 
+// ignore: camel_case_types
 class _addTripCoverPicContainerState extends State<addTripCoverPicContainer> {
   @override
   Widget build(BuildContext context) {

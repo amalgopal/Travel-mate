@@ -150,26 +150,26 @@ class _myTextFieldState extends State<MyDatePicker> {
       keyboardType: widget.keyboardType,
       validator: widget.validation,
       decoration: InputDecoration(
-        prefixIcon: Icon(Icons.calendar_month),
-        contentPadding: EdgeInsets.symmetric(vertical: 17, horizontal: 20),
-        hintText: '${widget.startOrend}',
-        hintStyle: TextStyle(color: accentColor, fontSize: 15),
+        prefixIcon: const Icon(Icons.calendar_month),
+        contentPadding: const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
+        hintText: widget.startOrend,
+        hintStyle: const TextStyle(color: accentColor, fontSize: 15),
         fillColor: Colors.white,
         filled: true,
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: primaryColor,
             )),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
-            borderSide: BorderSide(color: primaryColor)),
+            borderSide: const BorderSide(color: primaryColor)),
         errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
-            borderSide: BorderSide(color: Colors.red)),
+            borderSide: const BorderSide(color: Colors.red)),
         focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(6),
-            borderSide: BorderSide(color: Colors.red)),
+            borderSide: const BorderSide(color: Colors.red)),
       ),
     );
   }

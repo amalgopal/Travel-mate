@@ -14,8 +14,8 @@ class ScreenAppInfo extends StatelessWidget {
         backgroundColor: backgroundColor,
         leading: IconButton(onPressed: (){
           Navigator.of(context).pop();
-        }, icon: Icon(Icons.arrow_back,color: Colors.black,),),
-        title: Text('App Info',style:TextStyle(color: Colors.black) ,),
+        }, icon: const Icon(Icons.arrow_back,color: Colors.black,),),
+        title: const Text('App Info',style:TextStyle(color: Colors.black) ,),
       ),
       body: Column(
         children: [
@@ -25,13 +25,7 @@ typesetting industry. Lorem Ipsum has been the
 industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and
 scrambled it to make a type specimen book.''',style: TextStyle(color: Colors.grey.shade600),),
-Container(
-  color: Colors.black,
-  padding: EdgeInsets.only(left: 15,top: 20, right: 15),
-  child: GestureDetector(
-    child: ListView()
-  ),
-)
+
         ],
       ),
     );

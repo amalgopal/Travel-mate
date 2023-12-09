@@ -24,7 +24,7 @@ class ScreenLoginOrSignup extends StatelessWidget {
               child: ElevatedButton(
                 style:ElevatedButton.styleFrom(backgroundColor: Colors.grey) ,
                 onPressed: (){
-                   Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>ScreenLogin()));
+                   Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> const ScreenLogin()));
                    },
                     child: const Text('Log In',style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold ),)),
             ),
@@ -37,7 +37,7 @@ class ScreenLoginOrSignup extends StatelessWidget {
                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
                
                onPressed: (){
-                 Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> ScreenSigup()),);}, child: const Text('Sign Up',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+                 Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> const ScreenSigup()),);}, child: const Text('Sign Up',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
                ),
             ),
             SizedBox(height:screensize.height * 0.25),

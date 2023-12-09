@@ -3,7 +3,9 @@ import 'package:travel_mate/components/app_color.dart';
 
 
 class BudgetContainer extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final text;
+  // ignore: prefer_typing_uninitialized_variables
   final budgetORexpenses;
   const BudgetContainer({super.key, this.text, this.budgetORexpenses});
 
@@ -23,12 +25,12 @@ class BudgetContainer extends StatelessWidget {
           children: [
             Text(
               text,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            Divider(),
+            const Divider(),
             Text(
               budgetORexpenses,
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+              style:const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
             ),
             SizedBox(
               height: screenSize.height * 0.01,

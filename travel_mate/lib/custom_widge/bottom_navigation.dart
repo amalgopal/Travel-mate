@@ -39,7 +39,7 @@ class _BotteomBarState extends State<BotteomBar> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => ScreenAddTrip(user: widget.userdata)));
         },
-        child: Icon(Icons.add, color: Colors.black),
+        child: const Icon(Icons.add, color: Colors.black),
         backgroundColor: Colors.yellow,
       ),
       bottomNavigationBar: BottomNavigationBar(

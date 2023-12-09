@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:travel_mate/components/app_color.dart';
 import 'package:travel_mate/db/functions/db_function.dart';
+import 'package:travel_mate/menu%20Screen/profile%20.dart';
+
 import 'package:travel_mate/model/user_model.dart';
 
 class EditPassword extends StatelessWidget {
@@ -46,8 +48,11 @@ final _changepasswordController = TextEditingController();
     );
   }
   updatePassword(context){
-    String password =_changepasswordController.toString();
-    updateUserinfo('password', password, user.id!);
+    
+    String passwordupdate =_changepasswordController.text.toString();
+  
+    updateUserinfo('password', passwordupdate, user.id!);
+    passwoerd = passwordupdate;
     Navigator.of(context).pop();
   }
 }

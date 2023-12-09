@@ -37,13 +37,13 @@ class MyCompanion extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.group,
                 color: accentColor,
               ),
               Text(
                 text, // Display selected date or 'Starting date'
-                style: TextStyle(fontSize: 12, color: primaryColor),
+                style: const TextStyle(fontSize: 12, color: primaryColor),
               ),
             ],
           ),
@@ -110,7 +110,7 @@ class MyCompanion extends StatelessWidget {
                                 companionList.removeAt(index);
                               });
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete,
                               color: Colors.red,
                             )),
@@ -123,7 +123,7 @@ class MyCompanion extends StatelessWidget {
                   }
                 },
                 separatorBuilder: (context, index) {
-                  return SizedBox(height: 10);
+                  return const SizedBox(height: 10);
                 },
                 itemCount: companionList.length,
               );

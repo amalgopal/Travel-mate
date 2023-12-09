@@ -24,10 +24,10 @@ class MyButton extends StatelessWidget {
           backgroundColor: backgroundColor,
           textStyle: TextStyle(
               fontSize: 20, fontWeight: FontWeight.w500, color: textColor),
-          minimumSize: Size(353, 54),
+          minimumSize: const Size(353, 54),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
-              side: BorderSide(width: 1, color: primaryColor)),
+              side: const BorderSide(width: 1, color: primaryColor)),
         ));
   }
 }

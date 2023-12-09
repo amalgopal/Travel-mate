@@ -63,8 +63,11 @@ Future<void> initializeDataBase() async {
 }  
 ///////////Media pics////////
 Future<int?> addMediapics(MediaModel value)async{
+  
   final id = await _db.rawInsert('INSERT INTO media (userID,tripID,mediaPic) VALUES(?,?,?)',
   [value.userId,value.tripId,value.mediaImage]);
+  
+
   return id;
 }
 //////////get media pics////
@@ -80,7 +83,7 @@ return null;
 }
 /////////////
  deletemedia(int? mediaid) async {
-    await _db.rawDelete('DELETE FROM media WHERE tripID = ?', [mediaid]);
+    await _db.rawDelete('DELETE FROM media WHERE id = ?', [mediaid]);
  }
 /////////// Expense /////////////
 Future<int?> addExpense(ExpenseModel value)async {
@@ -283,8 +286,8 @@ Future<int>getbalance(int tripid)async{
 Future<int>addUser(UserModel value) async {
   
   int id =await _db.rawInsert(
-    'INSERT INTO user(image, username, mail, password) VALUES(?,?,?,?)',
-    [value.image,value.username, value.mail, value.password],
+    'INSERT INTO user(image, username, mail, password, islogin) VALUES(?,?,?,?,?)',
+    [value.image,value.username, value.mail, value.password,1],
   
   );
    print(value.username);
@@ -351,8 +354,10 @@ Future<UserModel?> validateUser(String userName, String password) async {
 /////////////Edit user info functions/////////
   
 updateUserinfo(String columnNAme,String newValue,int userId)async{
-  await _db.update('user', {columnNAme:newValue},
+  print("image path:-$newValue");
+ final value= await _db.update('user', {columnNAme:newValue},
   where: 'id=?',whereArgs: [userId]);
+  print("Value:=$value");
 }
 
 /////update profile and username in homepage/////

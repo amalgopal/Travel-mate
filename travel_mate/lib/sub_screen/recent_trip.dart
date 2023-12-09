@@ -40,7 +40,7 @@ class RecentTripScreen extends StatelessWidget {
           ),
           title: Text(
             trip.tripName,
-            style: TextStyle(color: primaryColor),
+            style: const TextStyle(color: primaryColor),
           ),
           actions: [
             IconButton(onPressed: (){ 
@@ -53,41 +53,8 @@ class RecentTripScreen extends StatelessWidget {
                   (route) => false,);}, icon: Container(
                 height:screensize.height * 0.1,
                 width: screensize.width * 0.1,
-                child: Icon(Icons.delete,color: Colors.red,)))
-            // Builder(
-            //   builder: (context) => PopupMenuButton(
-            //     color: backgroundColor,
-            //     icon: Icon(
-            //       Icons.more_vert,
-            //       color: primaryColor,
-            //     ),
-            //     itemBuilder: (context) => [
-            //       PopupMenuItem(
-            //         child: Text('Edit'),
-            //         onTap: () async {
-            //           getRecentTrip(user.id!);
-            //           Navigator.push(
-            //             context,
-            //             MaterialPageRoute(
-            //                 builder: (context) => ScreenAddTrip(
-            //                       user: user,
-            //                       tripData: trip,
-            //                     )),
-            //           );
-            //         },
-            //       ),
-            //       PopupMenuItem(
-            //         child: Text(
-            //           'Delete',
-            //           style: TextStyle(color: Colors.red),
-            //         ),
-            //         onTap: () async {
-            //           _deleteDialog(context);
-            //         },
-            //       ),
-            //     ],
-            //   ),
-            // ),
+                child:const Icon(Icons.delete,color: Colors.red,)))
+           
           ],
         ),
         body: Padding(
@@ -138,7 +105,7 @@ class RecentTripScreen extends StatelessWidget {
     showDialog(
       context: context,
       builder: (ctx) => CupertinoAlertDialog(
-        title: Column(
+        title:const Column(
           children: [
             Text("Delete your trip?"),
             Text(
@@ -152,7 +119,7 @@ class RecentTripScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text("Cancel"),
+            child:const Text("Cancel"),
           ),
           CupertinoButton(
             onPressed: () async {
@@ -164,7 +131,7 @@ class RecentTripScreen extends StatelessWidget {
                 (route) => false,
               );
             },
-            child: Text("Delete", style: TextStyle(color: Colors.red)),
+            child:const Text("Delete", style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

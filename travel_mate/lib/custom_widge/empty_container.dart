@@ -44,10 +44,10 @@ class EmptyTripContainer extends StatelessWidget {
                     ));
               },
               child: Icon(addIcon)),
-          Text(text1 ?? '', style: textStyle ?? TextStyle(fontSize: 10)),
+          Text(text1 ?? '', style: textStyle ?? const TextStyle(fontSize: 10)),
           Text(
             text2 ?? '',
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
         ],
       ),

@@ -37,6 +37,7 @@ import 'package:travel_mate/model/trip_model.dart';
                   height: screensize.height * 0.02,
                 ),
                 TextFormField(
+                  keyboardType: const TextInputType.numberWithOptions(),
                   controller:amount ,
                   decoration: const InputDecoration(
                     hintText: 'amount',

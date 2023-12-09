@@ -38,7 +38,7 @@ class OngoingContainer extends StatelessWidget {
                         ? FileImage(
                             File(coverPic),
                           )
-                        : AssetImage('assets/app_logo.png') as ImageProvider)),
+                        : const AssetImage('assets/app_logo.png') as ImageProvider)),
           ),
         ),
         SizedBox(
@@ -48,7 +48,7 @@ class OngoingContainer extends StatelessWidget {
         //ongoing transport icon,place,starting date
         Row(
           children: [
-            CircleAvatar(
+           const CircleAvatar(
               backgroundColor: accentColor2,
               maxRadius: 13,
               child: Icon(
@@ -68,7 +68,7 @@ class OngoingContainer extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    CircleAvatar(
+                   const CircleAvatar(
                         backgroundColor: accentColor2,
                         maxRadius: 13,
                         child: Icon(

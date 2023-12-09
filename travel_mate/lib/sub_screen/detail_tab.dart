@@ -31,7 +31,7 @@ class DetailTab extends StatelessWidget {
                 leading: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                   const Text(
                       'Starting date',
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: 15.5),
@@ -41,14 +41,14 @@ class DetailTab extends StatelessWidget {
                     ),
                     Text(
                       trip.startingDate,
-                      style: TextStyle(color: accentColor3, fontSize: 13.5),
+                      style:const TextStyle(color: accentColor3, fontSize: 13.5),
                     )
                   ],
                 ),
                 trailing: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
+                   const Text(
                       'Ending date',
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: 15.5),
@@ -58,7 +58,7 @@ class DetailTab extends StatelessWidget {
                     ),
                     Text(
                       trip.endingDate,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black54,
                         fontSize: 13.5,
                       ),
@@ -103,7 +103,7 @@ class DetailTab extends StatelessWidget {
                     child: Center(
                         child: Text(
                       'Balance : ₹ $balance',
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                     )),
                   );
                 }
@@ -113,7 +113,7 @@ class DetailTab extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text(
+                 const Text(
                     'Travel purpose       ',
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 15.5),
@@ -127,7 +127,7 @@ class DetailTab extends StatelessWidget {
                     child: Center(
                         child: Text(
                       trip.travelPurpose,
-                      style: TextStyle(color: accentColor3),
+                      style: const TextStyle(color: accentColor3),
                     )),
                   )
                 ],
@@ -139,11 +139,11 @@ class DetailTab extends StatelessWidget {
               SizedBox(
                 height: screenSize.height * 0.01,
               ),
-              Text(
+             const Text(
                 'Companions',
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.5),
               ),
-              Container(
+              SizedBox(
                 height: screenSize.height * 0.1,
                 width: screenSize.width * 0.9,
                 child: ListView.builder(
@@ -170,7 +170,7 @@ class DetailTab extends StatelessWidget {
                               ),
                               Text(
                                 companion.name,
-                                style: TextStyle(fontSize: 13),
+                                style:const TextStyle(fontSize: 13),
                               )
                             ],
                           ),

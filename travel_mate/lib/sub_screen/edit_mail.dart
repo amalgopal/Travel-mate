@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_mate/components/app_color.dart';
 import 'package:travel_mate/db/functions/db_function.dart';
+import 'package:travel_mate/menu%20Screen/side_menu.dart';
 import 'package:travel_mate/model/user_model.dart';
 
 class EditMail extends StatelessWidget {
@@ -17,8 +18,8 @@ final _changemailController = TextEditingController();
         backgroundColor: backgroundColor,
         leading: IconButton(onPressed: (){
           Navigator.of(context).pop();
-        }, icon: Icon(Icons.arrow_back,color: Colors.black,)),
-        title: Text('Change Mail',style: TextStyle(color: Colors.black),),
+        }, icon:const Icon(Icons.arrow_back,color: Colors.black,)),
+        title:const Text('Change Mail',style: TextStyle(color: Colors.black),),
 
       ),
       body: Column(
@@ -27,8 +28,9 @@ final _changemailController = TextEditingController();
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
               controller: _changemailController,
-              decoration: InputDecoration(
+              decoration:const InputDecoration(
                 border: OutlineInputBorder()
               ),
               
@@ -40,13 +42,14 @@ final _changemailController = TextEditingController();
         padding: const EdgeInsets.symmetric(horizontal: 155),
         child: ElevatedButton(onPressed: (){
           updateMail(context);
-        }, child: Text('UPDATE')),
+        }, child:const Text('UPDATE')),
       ),
     );
   }
   updateMail(context){
-    String mail = _changemailController.toString();
-    updateUserinfo('mail', mail,user.id! );
+    String mailupodate = _changemailController.text.toString();
+    updateUserinfo('mail', mailupodate,user.id! );
+    mail=mailupodate;
     Navigator.of(context).pop();
   }
 }

@@ -1,14 +1,15 @@
 
-
-
 import 'package:flutter/material.dart';
 
 import 'package:travel_mate/components/app_color.dart';
 import 'package:travel_mate/components/edite_image.dart';
+import 'package:travel_mate/menu%20Screen/side_menu.dart';
 import 'package:travel_mate/model/user_model.dart';
 import 'package:travel_mate/sub_screen/edit_mail.dart';
 import 'package:travel_mate/sub_screen/edit_name.dart';
 import 'package:travel_mate/sub_screen/edit_password.dart';
+
+String passwoerd ='';
 
 class ScreenProfile extends StatelessWidget {
   final UserModel user;
@@ -35,7 +36,7 @@ class ScreenProfile extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pop(true);
           },
           icon: const Icon(Icons.arrow_back, color: Colors.black),
         ),
@@ -58,7 +59,7 @@ class ScreenProfile extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.account_box_outlined),
             title: const Text('Name'),
-            subtitle: Text(user.username, ),
+            subtitle: Text(name!=''?name:user.username, ),
             trailing: TextButton(onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> EditName(user: user,)));
             }, child: const Text('Edit')),
@@ -67,7 +68,7 @@ class ScreenProfile extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.mail_outline),
             title: const Text('Mail'),
-            subtitle: Text(user.mail),
+            subtitle: Text(mail !=''?mail : user.mail),
             trailing: TextButton(onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> EditMail(user: user,)));
             }, child: const Text('Edit')),
@@ -76,7 +77,7 @@ class ScreenProfile extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.lock),
             title: const Text('Password'),
-            subtitle: Text(formatPassword(user.password)),
+            subtitle: Text(formatPassword(passwoerd !=''?passwoerd : user.password)),
             trailing: TextButton(onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>EditPassword(user: user,)));
             }, child: const Text('Change')),

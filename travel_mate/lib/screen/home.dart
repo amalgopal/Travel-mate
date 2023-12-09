@@ -45,7 +45,7 @@ class _ScreenHomeState extends State<ScreenHome> {
         ),
        
         title: Text('I am ${widget.user.username}',
-                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                     style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
                     ), 
         actions: [
           IconButton(

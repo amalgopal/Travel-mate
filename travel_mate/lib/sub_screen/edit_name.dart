@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_mate/components/app_color.dart';
 import 'package:travel_mate/db/functions/db_function.dart';
 import 'package:travel_mate/model/user_model.dart';
+import '../menu Screen/side_menu.dart';
 
 class EditName extends StatelessWidget {
   final UserModel user;
@@ -10,6 +11,7 @@ class EditName extends StatelessWidget {
 
   final _changenameController = TextEditingController();
   
+  @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size; 
     return Scaffold(
@@ -45,8 +47,9 @@ class EditName extends StatelessWidget {
     );
   }
   updatename(context){
-    String name = _changenameController.toString();
-      updateUserinfo('username', name  ,user.id! );
+    String nameupdate = _changenameController.text.toString();
+      updateUserinfo('username', nameupdate  ,user.id! );
+      name=nameupdate;
           Navigator.of(context).pop();
   }
 }

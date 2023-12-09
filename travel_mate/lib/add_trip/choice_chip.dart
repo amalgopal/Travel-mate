@@ -14,12 +14,12 @@ class MyChoiceChip extends StatefulWidget {
     'Other'
   ];
   final List<Icon> icons = [
-    Icon(Icons.flight_takeoff_rounded),
-    Icon(Icons.directions_car_rounded),
-    Icon(Icons.train_rounded),
-    Icon(Icons.directions_bike_rounded),
-    Icon(Icons.directions_boat),
-    Icon(Icons.commute),
+    const Icon(Icons.flight_takeoff_rounded),
+   const Icon(Icons.directions_car_rounded),
+   const Icon(Icons.train_rounded),
+   const Icon(Icons.directions_bike_rounded),
+   const Icon(Icons.directions_boat),
+   const Icon(Icons.commute),
   ];
 
   MyChoiceChip({Key? key}) : super(key: key);
@@ -40,22 +40,22 @@ class _MyChoiceChipState extends State<MyChoiceChip> {
       children: List.generate(
         widget.choices.length,
         (int index) {
-          return Container(
+          return SizedBox(
             height: 50,
             width: 112,
             child: ChoiceChip(
-              padding: EdgeInsets.fromLTRB(25, 10, 25, 10),
+              padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
               avatar: widget.icons[index],
               selectedColor: primaryColor,
               backgroundColor: backgroundColor,
-              iconTheme: IconThemeData(
+              iconTheme: const IconThemeData(
                 color: accentColor,
                 size: 17,
               ),
-              labelStyle: TextStyle(color: accentColor, fontSize: 12),
+              labelStyle:const TextStyle(color: accentColor, fontSize: 12),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
-                  side: BorderSide(width: 1)),
+                  side:const BorderSide(width: 1)),
               label: Text(widget.choices[index]),
               selected: _value == index,
               onSelected: (bool selected) {

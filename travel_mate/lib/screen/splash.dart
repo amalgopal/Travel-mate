@@ -46,7 +46,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
     } else {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => ScreenSkip(),
+          builder: (context) =>const ScreenSkip(),
         ),
         (route) => false,
       );

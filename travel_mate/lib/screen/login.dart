@@ -26,7 +26,7 @@ void _togglePasswordVisibility() {
     return Scaffold(
       
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Form(
           key: formKey,
           child: Column(
@@ -72,12 +72,12 @@ void _togglePasswordVisibility() {
                   decoration:  InputDecoration(
                     filled: true,
                     fillColor: Colors.grey,
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     hintText: 'Enter your password',
                     suffixIcon: IconButton(
             icon: _isPasswordObscure
-                ? Icon(Icons.visibility_off)
-                : Icon(Icons.visibility),
+                ? const Icon(Icons.visibility_off)
+                : const Icon(Icons.visibility),
             onPressed: _togglePasswordVisibility,
           ) ,
                   ),

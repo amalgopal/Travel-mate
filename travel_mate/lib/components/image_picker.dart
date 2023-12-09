@@ -19,7 +19,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
     return image == null
         ?  Stack(
           children: [
-            CircleAvatar(
+           const CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.black12,
                 backgroundImage: AssetImage('asset/image/young-man-avatar-character_24877-9475.jpg'),
@@ -30,7 +30,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
                   onTap: (){
                     addImage();
                   },
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     radius: 15,
                     backgroundColor: Colors.black,
                     child: Icon(Icons.add),
@@ -48,7 +48,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
               onTap: (){
                 addImage();
               },
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 radius: 15,
                 backgroundColor: Colors.black,
                 child: Icon(Icons.edit_outlined),
@@ -79,7 +79,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
                     image = imageFile;
                   });
                 },
-                child: Text('Take Photo'),
+                child: const Text('Take Photo'),
               ),
               CupertinoActionSheetAction(
                 onPressed: () async {
@@ -95,14 +95,14 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
                     image = imageFile;
                   });
                 },
-                child: Text('Choose Photo'),
+                child: const Text('Choose Photo'),
               ),
             ],
             cancelButton: CupertinoActionSheetAction(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel', style: TextStyle(color: Colors.red)),
+              child: const Text('Cancel', style: TextStyle(color: Colors.red)),
             ),
           );
         });

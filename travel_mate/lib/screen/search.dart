@@ -49,7 +49,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 },
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color.fromARGB(172, 158, 158, 158),
+                  fillColor: const Color.fromARGB(172, 158, 158, 158),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -64,8 +64,9 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 child: ValueListenableBuilder<List<TripModal>>(
                   valueListenable: searchResult,
                   builder: (context, value, _) {
-                    return value.length == 0 ? Center(child: Text('Now result found',style: TextStyle(fontWeight: FontWeight.bold),),)
+                    return value.isEmpty ? const Center(child: Text('Now result found',style: TextStyle(fontWeight: FontWeight.bold),),)
                     : ListView.builder(
+                      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                       itemCount: value.length,
                       itemBuilder: (context, index) => Card(
                         elevation: 10,

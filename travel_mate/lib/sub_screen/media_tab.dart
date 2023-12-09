@@ -28,7 +28,7 @@ class _MediaTabState extends State<MediaTab> {
           children: [
             ListTile(
               contentPadding: EdgeInsets.zero,
-              leading: Text(
+              leading: const Text(
                 'Pictures',
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
@@ -36,7 +36,7 @@ class _MediaTabState extends State<MediaTab> {
                 onTap: () {
                   addMedia();
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.add_photo_alternate_outlined,
                   color: primaryColor,
                   size: 22,
@@ -47,7 +47,7 @@ class _MediaTabState extends State<MediaTab> {
               future: getmediapics(widget.trip.id!),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator(); 
+                  return const CircularProgressIndicator(); 
                 } else if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 } else if (snapshot.hasData) {
@@ -56,7 +56,7 @@ class _MediaTabState extends State<MediaTab> {
                    print("length :- ${data.length}");
                    print('data:-$data');
                   return GridView.builder(shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                      // childAspectRatio: 0.68,
                     ),
@@ -67,9 +67,10 @@ class _MediaTabState extends State<MediaTab> {
                       return CircleAvatar(
                         radius: 20,
                         backgroundImage: FileImage(File(imagePath)),
-                        child: IconButton(onPressed: (){
-                          deletemedia(widget.trip.id);
-                        }, icon:Icon(Icons.delete)),
+                        child: IconButton(onPressed: ()async{
+                         await deletemedia(data[index]['id']);
+                          setState(() { });
+                        }, icon: const Icon(Icons.delete)),
                       );
                     },
                   );
@@ -77,7 +78,7 @@ class _MediaTabState extends State<MediaTab> {
                   return Container(
                     height: 100, // Set a fixed height for the placeholder
                     alignment: Alignment.center,
-                    child: Text('No data'),
+                    child: const Text('No data'),
                   );
                 }
               },
@@ -88,62 +89,21 @@ class _MediaTabState extends State<MediaTab> {
     );
   }
 
-  Future<void> addMedia() async {
-    await addImage();
-    if (mediaImage != null) {
-      MediaModel obj = MediaModel(userId: widget.trip.userID!, tripId: widget.trip.id!, mediaImage: mediaImage!.path);
-      final mediaId = await addMediapics(obj);
-      obj.id = mediaId;
-      // Optionally, you can setState to trigger a rebuild after adding the media
-      // setState(() {});
+
+
+  Future<void>addMedia()async{
+    final imagePath =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (imagePath != null) {
+      mediaImage = File(imagePath.path);
+       MediaModel obj = MediaModel(userId: widget.trip.userID!, tripId: widget.trip.id!, mediaImage: mediaImage!.path);
+final mediaId = await addMediapics(obj);
+obj.id = mediaId;
+
+setState(() {});
     }
   }
 
-  Future<void> addImage() async {
-    final imagePicker = ImagePicker();
-    showCupertinoModalPopup(
-      context: context,
-      builder: (BuildContext cont) {
-        return CupertinoActionSheet(
-          actions: [
-            CupertinoActionSheetAction(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                final pickedImage = await imagePicker.pickImage(
-                  source: ImageSource.camera,
-                );
-                if (pickedImage != null) {
-                  setState(() {
-                    mediaImage = File(pickedImage.path);
-                  });
-                }
-              },
-              child: Text('Take Photo'),
-            ),
-            CupertinoActionSheetAction(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                final pickedImage = await imagePicker.pickImage(
-                  source: ImageSource.gallery,
-                );
-                if (pickedImage != null) {
-                  setState(() {
-                    mediaImage = File(pickedImage.path);
-                    print("selected:- $mediaImage");
-                  });
-                }
-              },
-              child: Text('Choose Photo'),
-            ),
-          ],
-          cancelButton: CupertinoActionSheetAction(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('Cancel', style: TextStyle(color: Colors.red)),
-          ),
-        );
-      },
-    );
-  }
+  
+  
 }

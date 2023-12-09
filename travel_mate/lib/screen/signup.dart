@@ -52,9 +52,9 @@ class _ScreenSigupState extends State<ScreenSigup> {
                    SizedBox(height: screensize.height * 0.06, ),
                   
                   
-                  Text('Create a new account',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                 const Text('Create a new account',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                   SizedBox(height: screensize.height * 0.06,),
-                  ProfileImagePicker(),
+                 const ProfileImagePicker(),
                    SizedBox(height: screensize.height * 0.06,),
                   SizedBox(
                     width: screensize.width * 0.85,
@@ -79,6 +79,7 @@ class _ScreenSigupState extends State<ScreenSigup> {
                   SizedBox(
                     width: screensize.width * 0.85,
                     child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: _mailcontroller,
                       decoration : const InputDecoration(
                         filled : true,
@@ -104,12 +105,12 @@ class _ScreenSigupState extends State<ScreenSigup> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.grey,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         hintText: 'Enter your password',
                         suffixIcon: IconButton(
                 icon: _isPasswordObscure
-                    ? Icon(Icons.visibility_off)
-                    : Icon(Icons.visibility),
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility),
                 onPressed: _togglePasswordVisibility,
               ) ,
                       ),
@@ -134,8 +135,8 @@ class _ScreenSigupState extends State<ScreenSigup> {
                       hintText: 'Confirm password',
                       suffixIcon: IconButton(
                 icon: _isCPasswordObscure
-                    ? Icon(Icons.visibility_off)
-                    : Icon(Icons.visibility),
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility),
                 onPressed: _toggleConfirmPasswordVisibility,
               ) ,
                     ),
@@ -166,7 +167,7 @@ class _ScreenSigupState extends State<ScreenSigup> {
 onSignupButtonClicked() async {
   if (formKey.currentState!.validate()) {
     if (image == null) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Please add an image before submitting the form.'),
         behavior: SnackBarBehavior.floating,
       ));
@@ -179,7 +180,7 @@ onSignupButtonClicked() async {
 
     // Email validation using a regular expression
     if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(mail)) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Please enter a valid email address.'),
         behavior: SnackBarBehavior.floating,
       ));
@@ -190,7 +191,7 @@ onSignupButtonClicked() async {
 
     if (nameExists) {
       // Show an error message if the username already exists in the database.
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('This username is already registered. Please use a different username.'),
         behavior: SnackBarBehavior.floating,
       ));

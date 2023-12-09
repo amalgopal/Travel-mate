@@ -36,6 +36,7 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
   final budgetController = TextEditingController();
   final startingDateController = TextEditingController();
  final endingDateController = TextEditingController();
+  @override
   void initState() {
     super.initState();
     if (widget.tripData != null) {
@@ -63,7 +64,7 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
     final Size screensize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Trip'),
+        title: const Text('Add Trip'),
         backgroundColor: Colors.grey,
       ),
       body: SafeArea(
@@ -83,7 +84,7 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
                     
                     TextFormField(
                    controller: tripNameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Enter trip name',
                       ),
@@ -101,7 +102,7 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
                     ),
                      TextFormField(
                       controller: destinationController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Enter trip destination'
                       ),
@@ -118,10 +119,10 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
                     SizedBox(
                       height:  screensize.height * 0.018,
                     ),
-                   TextFormField(
+                   TextFormField(keyboardType: const TextInputType.numberWithOptions(),
                     controller: budgetController,
-                     decoration: InputDecoration(
-                       border: OutlineInputBorder(),
+                     decoration: const InputDecoration(
+                       border:  OutlineInputBorder(),
                        hintText: 'Enter trip budget'
 
                      ),
@@ -142,14 +143,14 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                        
-                        Container(
+                        SizedBox(
                           width: screensize.width * 0.43,
                           child:MyDatePicker(
                             dateCheck: true,
                             startController: startingDateController,
                             startOrend: 'Starting date')
                         ),
-                        Container(
+                        SizedBox(
                           width: screensize.width *0.43,
                           child: MyDatePicker(
                            // dateCheck: true,
@@ -173,7 +174,7 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
                     SizedBox(
                       height: screensize.height * 0.018,
                     ),
-                     MyDropdownMenu(items:const ['business','Entertainment','Family','other'], 
+                    const MyDropdownMenu(items: ['business','Entertainment','Family','other'], 
                      initialValue: 'business'),
                     SizedBox(
                       height: screensize.height * 0.018,
@@ -225,7 +226,7 @@ class _ScreenAddTripState extends State<ScreenAddTrip> {
       if (coverPic == null) {
         // Show an error message if the image is not selected.
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+         const SnackBar(
             content: Text('Please add image before finishig the form.'),
             behavior: SnackBarBehavior.floating,
             // margin: EdgeInsets.all(20),

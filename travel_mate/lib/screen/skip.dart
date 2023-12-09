@@ -22,7 +22,7 @@ class ScreenSkip extends StatelessWidget {
           Expanded(
             child: Container(
              // color: Colors.green.shade900,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(image: AssetImage('asset/image/cartoon-summer-scene-with-mountain-landscape-forest-meadow-shores-illustration-ai-generated_22200-356.jpg'),fit: BoxFit.cover)
               ),
               child:  Column(

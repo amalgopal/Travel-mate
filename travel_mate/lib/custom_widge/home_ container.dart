@@ -45,7 +45,7 @@ class UpcomingRecentContainer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                 const Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -70,11 +70,11 @@ class UpcomingRecentContainer extends StatelessWidget {
                     children: [
                         Text(
                       destination != null ? destination : 'no data',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: backgroundColor, fontWeight: FontWeight.w600),
                     ),
                     Text(startingDate != null ? startingDate : 'data',
-                        style: TextStyle(color: backgroundColor, fontSize: 11))
+                        style: const TextStyle(color: backgroundColor, fontSize: 11))
                     ],
                   ),
                 )
